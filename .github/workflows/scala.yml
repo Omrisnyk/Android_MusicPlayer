@@ -1,11 +1,5 @@
 name: Snyk Scan
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
+on: push
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
