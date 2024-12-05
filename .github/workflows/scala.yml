@@ -31,15 +31,15 @@ jobs:
     # Run SBT tests
     - name: Run SBT Tests
       run: sbt test
-
-    # Install Snyk CLI
-    - name: Install Snyk CLI
-      uses: snyk/actions/sbt1.10.0-scala3.4.2@master
-      with:
-        version: 'latest'
-
+  
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/sbt1.10.0-scala3.4.2@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     # Run Snyk Open Source Test
     - name: Run Snyk Open Source Test
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      run: snyk test --all-projects --detection-depth=4
