@@ -34,7 +34,7 @@ jobs:
 
     # Install Snyk CLI
     - name: Install Snyk CLI
-      uses: snyk/actions/setup@v2
+      uses: snyk/actions/sbt1.10.0-scala3.4.2@master
       with:
         version: 'latest'
 
